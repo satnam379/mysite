@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from webapp import views
-# from ecommerce import views
+from ecommerce import views
 urlpatterns = [
     path('', include('travello.urls')),
     path('admin/', admin.site.urls),
-    url(r'^employees/', views.employeeList.as_view()),
-    # url(r'^user/', views.userList.as_view()),
-    # url(r'^u/', views.userList.as_view()),
-    # url(r'^user/', views.userList.as_view()),
+    # url(r'^employees/', views.employeeList.as_view()),
+    url(r'^user', views.userList.as_view()),
+    url(r'^product', views.productsList.as_view()),
+    url(r'^order', views.ordersList.as_view()),
+    path('user/<int:pk>', views.userList.as_view())
+
 ]
